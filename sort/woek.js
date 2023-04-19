@@ -1,49 +1,35 @@
-let arr = [5, 45, 6, 7, 4, 3, 7, 34, 5, 7, 3];
+let arr = [5, 1, 1, 4, 7, 8, 9, 6, 3, 5, 1, 5, 1, 5];
 let lb = 0;
 let ub = arr.length - 1;
-console.log(mergeSort(arr,lb,ub));
-
-function mergeSort(arr, lb, ub) {
+console.log(quickSort(arr, lb, ub));
+function quickSort(arr, lb, ub) {
   if (lb < ub) {
-    let mid = Math.floor((lb + ub) / 2);
-    mergeSort(arr, lb, mid);
-    mergeSort(arr, mid + 1, ub);
-    merge(arr, lb, mid, ub);
+    let result = partition(arr, lb, ub);
+    quickSort(arr, lb, result - 1);
+    quickSort(arr, result + 1, ub);
   }
-  return arr
+  return arr;
 }
+function partition(arr, lb, ub) {
+  let pivot = arr[lb];
+  let start = lb;
+  let end = ub;
 
-function merge(arr, lb, mid, ub) {
-  let i = lb;
-  let j = mid + 1;
-  let k = lb;
-  let b = [];
-  while (i <= mid && j <= ub) {
-    if (arr[i] <= arr[j]) {
-      b[k] = arr[i];
-      i++;
-    } else {
-      b[k] = arr[j];
-      j++;
+  while (start < end) {
+    while (arr[start] <= pivot) {
+      start++;
     }
-    k++;
-  }
-  if(i>mid){
-    while(j<=ub){
-        b[k]=arr[j]
-        j++
-        k++
+    while (arr[end] > pivot) {
+      end--;
     }
-  }else{
-    while(i<=mid){
-        b[k]=arr[i]
-        i++
-        k++
+    if (start < end) {
+      let temp = arr[start];
+      arr[start] = arr[end];
+      arr[end] = temp;
     }
   }
-  for (let k = lb; k <= ub; k++) {
-    arr[k] = b[k];
-  }
-  return arr
-  
+  let temp = arr[lb];
+  arr[lb] = arr[end];
+  arr[end] = temp;
+  return end;
 }

@@ -1,6 +1,7 @@
 class Stack {
   constructor() {
     this.items = [];
+    this.capacity = 5; // Added capacity for isfull() method
   }
 
   push(element) {
@@ -24,8 +25,9 @@ class Stack {
   isEmpty() {
     return this.items.length == 0;
   }
-  isfull() {
-    return this.elements.length === this.capacity;
+  
+  isFull() {
+    return this.items.length === this.capacity; // Fixed isfull() method
   }
 
   printStack() {
@@ -36,12 +38,14 @@ class Stack {
     return str;
   }
 }
+
 let stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-stack.pop(); // returns 3
-stack.pop(); // returns 2
-stack.peek(); // returns 1
-stack.isEmpty(); // returns false
-stack.printStack(); // returns "1 "
+console.log(stack.push(1));
+console.log(stack.push(2));
+console.log(stack.push(3));
+console.log(stack.pop());
+// console.log(stack.pop());
+console.log(stack.peek(),11);
+console.log(stack.isFull(),22); // Fixed method call
+console.log(stack.isEmpty(),33); // returns false
+console.log(stack.printStack(),44); // returns "1 "

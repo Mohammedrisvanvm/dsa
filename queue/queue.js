@@ -30,6 +30,10 @@ class Queue {
     }
   
     printQueue() {
+      if (this.isEmpty()) {
+        return "No elements in queue"
+        
+      }
       let str = "";
       for (let i = 0; i < this.items.length; i++) {
         str += this.items[i] + " ";
@@ -38,13 +42,17 @@ class Queue {
     }
   }
   let queue = new Queue();
-  queue.enqueue(1);
-  queue.enqueue(2);
-  queue.enqueue(3);
-  queue.dequeue(); // returns 1
-  queue.dequeue(); // returns 2
-  queue.peek(); // returns 3
-  queue.isEmpty(); // returns false
-  queue.printQueue(); // returns "3 "
+  console.log();
+  queue.enqueue(1)
+  queue.enqueue(2)
+  queue.enqueue(3)
+ console.log( queue.dequeue()); // returns 1
+ console.log( queue.dequeue()); // returns 2
+ console.log( queue.dequeue()); // returns 3
+  
+console.log(queue.peek()); // returns 3
+console.log(queue.isFull(5));
+  console.log(queue.isEmpty(),12); // returns false
+  console.log( queue.printQueue()); // returns "3 "
   console.log(queue);
     

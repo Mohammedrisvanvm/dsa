@@ -5,30 +5,31 @@ let ub = arr.length - 1;
 function quickSort(arr, lb, ub) {
   if (lb < ub) {
     let result = partition(arr, lb, ub);
- quickSort(arr,lb,result-1)
- quickSort(arr,result+1,ub)
+    quickSort(arr, lb, result - 1);
+    quickSort(arr, result + 1, ub);
   }
 
   return arr;
 }
 function partition(arr, lb, ub) {
-    let pivot = arr[lb];
-    let start = lb;
-    let end = ub;
-    while (start < end) {
-   
+  let pivot = arr[lb];
+  let start = lb;
+  let end = ub;
+  while (start < end) {
     while (arr[start] <= pivot) {
       start++;
     }
     while (arr[end] > pivot) {
-        end--;
-      }
+      end--;
+    }
     if (start < end) {
+   
       let temp = arr[start];
       arr[start] = arr[end];
       arr[end] = temp;
     }
   }
+  console.log(arr[lb], 2);
   let temp = arr[lb];
   arr[lb] = arr[end];
   arr[end] = temp;
