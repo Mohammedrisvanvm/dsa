@@ -35,7 +35,9 @@ class HashTable {
       const hashKey = this.hash(key);
       if (this.table.hasOwnProperty(hashKey) && this.table[hashKey].hasOwnProperty(key)) {
         delete this.table[hashKey][key];
+        return
       }
+      return "can't find key"
     }
   
     // Check if a key exists in the hash table
@@ -83,3 +85,14 @@ class HashTable {
     }
   }
   
+
+  let hash=new HashTable()
+  hash.insert("hai",10)
+  hash.insert("hal",10)
+  hash.insert("hallo",10)
+console.log(hash.get("hai"),11);
+console.log(hash.remove("hail"),66);
+console.log(hash.contains("hallo"),22);
+console.log(hash.keys(),33);
+console.log(hash.values,44);
+console.log(hash.size(),55);

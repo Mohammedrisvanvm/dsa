@@ -29,7 +29,7 @@ function partition(arr, lb, ub) {
       arr[end] = temp;
     }
   }
-  console.log(arr[lb], 2);
+
   let temp = arr[lb];
   arr[lb] = arr[end];
   arr[end] = temp;

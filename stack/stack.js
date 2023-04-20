@@ -40,12 +40,12 @@ class Stack {
 }
 
 let stack = new Stack();
-console.log(stack.push(1));
-console.log(stack.push(2));
-console.log(stack.push(3));
+stack.push(1)
+stack.push(2)
+stack.push(3)
 console.log(stack.pop());
-// console.log(stack.pop());
-console.log(stack.peek(),11);
-console.log(stack.isFull(),22); // Fixed method call
-console.log(stack.isEmpty(),33); // returns false
-console.log(stack.printStack(),44); // returns "1 "
+console.log(stack.pop());
+console.log(stack.peek());
+console.log(stack.isFull()); 
+console.log(stack.isEmpty());
+console.log(stack.printStack());

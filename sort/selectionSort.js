@@ -18,4 +18,4 @@ function selectionSort(arr) {
   }
   return arr
 }
-console.log(selectionSort([5, 45, 6, 7, 4, 3, 7, 34, 5, 7, 3]));
+console.log(selectionSort([5, 45, 6, 7, 4, 3, 7, 34, 5, 7, 3]))
