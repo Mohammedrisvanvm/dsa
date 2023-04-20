@@ -15,7 +15,7 @@ class Queue {
   }
 
   peek() {
-    if (this.isEmpty()) {
+    if(this.isEmpty()) {
       return "No elements in Queue";
     }
     return this.items[0];
