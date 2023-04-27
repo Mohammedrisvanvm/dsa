@@ -88,6 +88,7 @@ class HashTable {
 
   let hash=new HashTable()
   hash.insert("hai",10)
+  hash.insert("hai",10)
   hash.insert("hal",10)
   hash.insert("hallo",10)
 console.log(hash.get("hai"),11);
