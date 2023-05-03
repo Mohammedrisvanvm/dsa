@@ -1,11 +1,15 @@
 class Stack {
-  constructor() {
+  constructor(size) {
     this.items = [];
-    this.capacity = 5; // Added capacity for isfull() method
+    this.capacity = size; // Added capacity for isfull() method
   }
 
   push(element) {
+    if(this.items.length==this.capacity){
+      return " stack is full"
+    }
     this.items.push(element);
+    return true
   }
 
   pop() {
@@ -39,13 +43,21 @@ class Stack {
   }
 }
 
-let stack = new Stack();
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(1)
-stack.push(2)
-stack.push(3)
+let stack = new Stack(5);
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.push(1));
+console.log(stack.printStack());
+
 console.log(stack.pop());
 console.log(stack.pop());
 console.log(stack.peek());

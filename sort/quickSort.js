@@ -1,4 +1,4 @@
-let arr = [5, 45, 6, 7, 4, 3, 7, 34, 5, 7, 3];
+let arr = [5, 45, 6, 7, 4, 3, 7, 34, 5, 7, 3]
 let lb = 0;
 let ub = arr.length - 1;
 
@@ -23,7 +23,6 @@ function partition(arr, lb, ub) {
       end--;
     }
     if (start < end) {
-   
       let temp = arr[start];
       arr[start] = arr[end];
       arr[end] = temp;

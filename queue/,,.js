@@ -1,57 +1,48 @@
-class HashTable {
-  constructor(size) {
-    this.table = new Array();
-    this.size = size;
-  }
+let arr = [5, 45, 6, 7, 4, 3, 7, 34, 5, 7, 3];
+let lb = 0;
+let ub = arr.length - 1;
+console.log(mergeSort(arr, lb, ub));
+function mergeSort(arr, lb, ub) {
+  if (lb < ub) {
+    let mid = Math.floor((lb + ub) / 2);
 
-  hash(key) {
-    let val = 0;
-    for (let i = 0; i < key.length; i++) {
-      val += key.charCodeAt(i);
-    }
-
-    return val % this.size;
+    mergeSort(arr, lb, mid);
+    mergeSort(arr, mid + 1, ub);
+    merge(arr, lb, mid, ub);
   }
-
-  set(key, value) {
-    let index = this.hash(key);
-
-    while (this.table[index]) {
-      index = (index + 1) % this.size;
-    }
-    this.table[index] = { key, value };
-  }
-  get(key) {
-    let index = this.hash(key);
-    console.log(index);
-    while (this.table[index]) {
-      if (this.table[index].key == key) {
-        return this.table[index].value;
-      }
-      index = (index + 1) % this.size;
-    }
-    return -1;
-  }
-  display() {
-    for (let i = 0; i < this.table.length; i++) {
-      if (this.table[i]) {
-        console.log(i, this.table[i]);
-      }
-    }
-  }
+  return arr;
 }
+function merge(arr, lb, mid, ub) {
+  let i = lb;
+  let j = mid + 1;
+  let k = lb;
+  let b = [];
 
-let hash = new HashTable(10);
-hash.set("hai", 1);
-hash.set("hai", 2);
-hash.set("hai", 3);
-hash.set("hai", 1);
-hash.set("hai", 2);
-hash.set("hai", 3);
-hash.set("hai", 1);
-hash.set("hai", 2);
-hash.set("hai", 1);
-hash.set("hai", 2);
-
-console.log(hash.get("hai"));
-hash.display();
+  while (i <= mid && j <= ub) {
+    if (arr[i] <= arr[j]) {
+      b[k] = arr[i];
+      i++;
+    } else {
+      b[k] = arr[j];
+      j++;
+    }
+    k++;
+  }
+  if (i > mid) {
+    while (j <= ub) {
+      b[k] = arr[j];
+      j++;
+      k++;
+    }
+  } else {
+    while (i <= mid) {
+      b[k] = arr[i];
+      i++;
+      k++;
+    }
+    for(let k=lb;k<=ub;k++){
+      arr[k]=b[k]
+    }
+  }
+  return arr;
+}

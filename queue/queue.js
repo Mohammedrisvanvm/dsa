@@ -1,13 +1,16 @@
 class Queue {
-  constructor(data) {
+  constructor(size) {
     this.items = [];
-    this.size=data
+    this.size=size
 
   }
 
   enqueue(element) {
- 
+ if(this.items.length==this.size){
+  return "queue is full"
+ }
     this.items.push(element);
+    return true
   }
 
   dequeue() {
@@ -27,8 +30,8 @@ class Queue {
   isEmpty() {
     return this.items.length == 0;
   }
-  isFull(capacity) {
-    return this.items.length ===capacity;
+  isFull() {
+    return this.items.length ===this.size;
   }
   insertAtPosition(element, position) {
     if (position >= this.items.length) {
@@ -48,14 +51,15 @@ class Queue {
     return str;
   }
 }
-let queue = new Queue();
+let queue = new Queue(5);
+console.log(queue.enqueue(1));
+console.log(queue.enqueue(2));
+console.log(queue.enqueue(3));
+console.log(queue.enqueue(4));
+console.log(queue.enqueue(5));
+console.log(queue.enqueue(6));
 
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
+console.log(queue.printQueue());
 console.log(queue.dequeue()); // returns 1
 queue.enqueue(1);
 
