@@ -7,9 +7,9 @@ class MaxHeap {
     return 2 * parentIndex + 1;
   }
 
-  getrightChildIndex(parentIndex) {
-    return 2 * parentIndex + 2;
-  }
+   getRightChildIndex(parentIndex){
+        return 2*parentIndex+2
+    }
 
   getParentIndex(childIndex) {
     return Math.floor((childIndex - 1) / 2);
@@ -106,8 +106,8 @@ class MaxHeap {
   }
 
   sort() {
-    if (this.heap.length != 0) {
-      return null;
+    if (this.heap.length === 0) {
+      return;
     }
 
     let result = [];
@@ -118,11 +118,11 @@ class MaxHeap {
         this.heap[0],
       ];
 
-      result.push(this, heap.pop());
+      result.push(this.heap.pop());
       this.heapifyDown();
     }
 
-    console.log(result);
+    console.log("result", result);
   }
 }
 const heap = new MaxHeap();
@@ -130,8 +130,8 @@ const heap = new MaxHeap();
 heap.add(10);
 heap.add(30);
 heap.add(20);
-
 console.log(heap);
 console.log(heap.peek());
-
+heap.poll()
+heap.poll()
 heap.sort();

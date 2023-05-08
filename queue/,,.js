@@ -1,113 +1,54 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
+let arr=[5,2,4,6,9,7,1,6]
+deleteFromHeap(arr,6)
+let sortedArr=heapSort(arr)
+console.log(sortedArr);
+
+function heapSort(arr){
+  let n=arr.length
+
+  for(let i=Math.floor(n/2)-1;i>=0;i--){
+    heapify(arr,n,i)
   }
+  console.log(arr);
+  for(let i=n-1;i>0;i--){
+    let swap=arr[0]
+    arr[0]=arr[i]
+    arr[i]=swap
+    heapify(arr,i,0)
+  }
+  return arr
 }
-class binarySearchTree {
-  constructor() {
-    this.root = null;
-  }
-  insert(value) {
-    let newNode = new Node(value);
-    if (!this.root) {
-      this.root = newNode;
-    } else {
-      this.insertNode(this.root, newNode);
-    }
-  }
-  insertNode(root, newNode) {
-    if (newNode.value < root.value) {
-      if (root.left === null) {
-        root.left = newNode;
-      } else {
-        this.insertNode(root.left, newNode);
-      }
-    } else {
-      if (root.right === null) {
-        root.right = newNode;
-      } else {
-        this.insertNode(root.right, newNode);
-      }
-    }
-  }
-  inOrder(root){
-    if(root){
-      this.inOrder(root.left)
-      console.log(root.value);
-      this.inOrder(root.right)
-    }
-  }
-  postOrder(root){
-    if(root){
-      this.postOrder(root.left)
-      this.postOrder(root.right)
-      console.log(root.value);
-    }
-  }
-  preOrder(root){
-    if(root){
-      console.log(root.value)
-      this.preOrder(root.left)
-      this.preOrder(root.right)
-    }
-    
-  }
-  minValue(root){
-    if(!root.left){
-      return root.value
-    }else{
-      return this.minValue(root.left)
-    }
-  }
-  maxValue(root){
-    if(!root.right){
-      return root.value
-    }else{
-      return this.maxValue(root.right)
-    }
-  }
-  delete(value){
-    this.root=this.deleteNode(this.root,value)
-   
-  }
-  deleteNode(root,value){
-    if(root===null){
+function heapify(arr,n,i){
+  let smallest=i
+  let left=2*i+1
+  let right=2*i+2
 
-      return root
-    }
-    if(value<root.value){
-      root.left=this.deleteNode(root.left,value)
-    }else if(value>root.value){
-      root.right=this.deleteNode(root.right,value)
-
-    }else{
-      if(!root.left&&!root.right){
-        return null
-      }
-      if(!root.left){
-        return root.right
-      }else if(!root.right){
-        return root.left
-      }
-      root.value=this.minValue(root.right)
-      root.right=this.deleteNode(root.right,root.value)
-    }
-    return root
-  }
+if(left<n&&arr[left]<arr[smallest]){
+  smallest=left
+}
+if (right<n&&arr[right]<arr[smallest]) {
+  smallest=right
+  
+}
+if(smallest!==i){
+ let swap=arr[i]
+ arr[i]=arr[smallest]
+ arr[smallest]=swap
+ heapify(arr,n,smallest)
 }
 
-const bst=new binarySearchTree()
-bst.insert(10)
-bst.insert(5)
-bst.insert(12)
-bst.insert(3)
-bst.insert(10)
-console.log(bst.inOrder(bst.root)); 
-console.log(bst.postOrder(bst.root));
-console.log(bst.preOrder(bst.root));
-console.log(bst.minValue(bst.root));
-console.log(bst.maxValue(bst.root));
-console.log(bst.delete(5));
-console.log(bst.inOrder(bst.root));
+}
+function deleteFromHeap(arr,value){
+  let index=arr.indexOf(value)
+    if(index==-1){
+      return false
+    }
+    let lastValue=arr.pop()
+    if(index!==arr.length){
+      arr[index]=lastValue
+      heapify(arr,arr.length,index)
+    }
+    return true
+  
+
+}

@@ -105,72 +105,76 @@
 //   const trie = new Trie("mannan")
 //   console.log(trie.contains("man"))
 class TrieNode {
-    constructor() {
-      this.children = new Map();
-      this.isEndOfWord = false;
-    }
+  constructor() {
+    this.children = new Map();
+    this.isEndOfWord = false;
   }
-  
-  class Trie {
-    constructor() {
-      this.root = new TrieNode();
-    }
-  
-    insert(word) {
-      let node = this.root;
-  
-      for (let i = 0; i < word.length; i++) {
-        const char = word[i];
-        if (!node.children.has(char)) {
-          node.children.set(char, new TrieNode());
-        }
-        node = node.children.get(char);
-      }
-  
-      node.isEndOfWord = true;
-    }
-  
-    search(word) {
-      let node = this.root;
-  
-      for (let i = 0; i < word.length; i++) {
-        const char = word[i];
-        if (!node.children.has(char)) {
-          return false;
-        }
-        node = node.children.get(char);
-      }
-  
-      return node.isEndOfWord;
-    }
-  
-    startsWith(prefix) {
-      let node = this.root;
-  
-      for (let i = 0; i < prefix.length; i++) {
-        const char = prefix[i];
-        if (!node.children.has(char)) {
-          return false;
-        }
-        node = node.children.get(char);
-      }
-  
-      return true;
-    }
-    endsWith(suffix) {
-        let node = this.root;
-        for (let i = suffix.length - 1; i >= 0; i--) {
-          const char = suffix[i];
-          if (!node.children.has(char)) {
-            return false;
-          }
-          node = node.children.get(char);
-        }
-        return node.isEndOfWord;
-      }
+}
+
+class Trie {
+  constructor() {
+    this.root = new TrieNode();
   }
 
-  const trie = new Trie();
+  insert(word) {
+    let node = this.root;
+
+    for (let i = 0; i < word.length; i++) {
+      const char = word[i];
+      if (!node.children.has(char)) {
+        node.children.set(char, new TrieNode());
+      }
+      node = node.children.get(char);
+    }
+
+    node.isEndOfWord = true;
+  }
+
+  search(word) {
+    let node = this.root;
+
+    for (let i = 0; i < word.length; i++) {
+      const char = word[i];
+      if (!node.children.has(char)) {
+        return false;
+      }
+      node = node.children.get(char);
+    }
+
+    return node.isEndOfWord;
+  }
+
+  startsWith(prefix) {
+    let node = this.root;
+
+    for (let i = 0; i < prefix.length; i++) {
+      const char = prefix[i];
+      if (!node.children.has(char)) {
+        return false;
+      }
+      node = node.children.get(char);
+    }
+
+    return true;
+  }
+
+  endsWith(suffix) {
+    console.log(suffix);
+    let node = this.root;
+   
+    for (let i = suffix.length -1; i >= 0; i--) {
+      const char = suffix[i];
+      console.log(char);
+      if (!node.children.has(char)) {
+        return false;
+      }
+      node = node.children.get(char);
+    }
+    return node.isEndOfWord;
+  }
+}
+
+const trie = new Trie();
 trie.insert('hello');
 trie.insert('world');
 console.log(trie.search('hello')); // true
@@ -179,4 +183,4 @@ console.log(trie.startsWith('llo')); // false
 console.log(trie.startsWith('he')); // true
 console.log(trie.startsWith('w')); // true
 console.log(trie.startsWith('f')); // false
-console.log(trie.endsWith('d')); // false
+console.log(trie.endsWith('ld')); // false

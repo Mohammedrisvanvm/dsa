@@ -52,6 +52,6 @@ graph.addEdge("a", "b");
 graph.addEdge("b", "c");
 
 graph.display();
-console.log(graph.hasEdge("a", "c"));
+console.log(graph.hasEdge("a", "b"));
 graph.removeVertex("b");
 graph.display();
