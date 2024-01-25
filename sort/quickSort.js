@@ -13,6 +13,7 @@ function quickSort(arr, lb, ub) {
 }
 function partition(arr, lb, ub) {
   let pivot = arr[lb];
+  console.log(pivot)
   let start = lb;
   let end = ub;
   while (start < end) {

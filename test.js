@@ -50,22 +50,50 @@
 
 // console.log(prime(9));
 
-let arr = [-5,-1,- 2, -5, -5];
+let arr = [-5, -1, -2, -5, -5];
 console.log(large(arr));
 function large(arr) {
-    let largest = 0;
-  
-    for (let i = 0; i < arr.length; i++) {
-      for (let j = i; j < arr.length; j++) {
-        let sum = 0;
-        for (let k = i; k <= j; k++) {
-          sum += arr[k];
-        }
-        if (largest < sum) {
-          largest = sum;
-        }
+  let largest = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i; j < arr.length; j++) {
+      let sum = 0;
+      for (let k = i; k <= j; k++) {
+        sum += arr[k];
+      }
+      if (largest < sum) {
+        largest = sum;
       }
     }
-    return largest;
   }
-  
+  return largest;
+}
+
+function factorial(num) {
+  if (num == 0 || num == 1) {
+    return 1;
+  }
+
+  return num * factorial(num - 1);
+}
+
+console.log(factorial(5));
+
+function ispalindrome(string) {
+  for (let i = 0; i < string.length - 1; i++) {
+    if (string[i] !== string[string.length - i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(ispalindrome("ma"));
+
+const a = [1, 2, 3, 4, 5, 6, 6];
+
+const map = a.map((n) => n * 2);
+const reduce = a.reduce((acc, curr) => acc + curr, 0);
+const filter = a.filter((n) => n % 2 != 0);
+filter.push(1);
+console.log(map, reduce, filter, a);

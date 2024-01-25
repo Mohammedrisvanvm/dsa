@@ -4,12 +4,12 @@
 //       this.isEndOfWord = false;
 //     }
 //   }
-  
+
 //   class Trie {
 //     constructor() {
 //       this.root = new TrieNode();
 //     }
-  
+
 //     insert(word) {
 //       let node = this.root;
 //       for (let i = 0; i < word.length; i++) {
@@ -21,7 +21,7 @@
 //       }
 //       node.isEndOfWord = true;
 //     }
-  
+
 //     search(word) {
 //       let node = this.root;
 //       for (let i = 0; i < word.length; i++) {
@@ -33,7 +33,7 @@
 //       }
 //       return node.isEndOfWord;
 //     }
-  
+
 //     startsWith(prefix) {
 //       let node = this.root;
 //       for (let i = 0; i < prefix.length; i++) {
@@ -58,26 +58,25 @@
 // console.log(trie.startsWith('wor')); // true
 // console.log(trie.startsWith('hi')); // false
 
-  
 // class TrieNode {
 //     constructor() {
 //       this.children = new Map();
 //     }
 //   }
- 
+
 //   class Trie {
 //     constructor(str) {
 //       this.root = new TrieNode();
 //       this.endSymbol = '*';
 //       this.populateSuffixTrie(str);
 //     }
- 
+
 //     populateSuffixTrie(str) {
 //       for (let i = 0; i < str.length; i++) {
 //         this.insertSubstringStartingAt(i, str);
 //       }
 //     }
- 
+
 //     insertSubstringStartingAt(index, str) {
 //       let node = this.root;
 //       for (let i = index; i < str.length; i++) {
@@ -89,7 +88,7 @@
 //       }
 //       node.children.set(this.endSymbol, null);
 //     }
- 
+
 //     contains(str) {
 //       let node = this.root;
 //       for (let i = 0; i < str.length; i++) {
@@ -161,8 +160,8 @@ class Trie {
   endsWith(suffix) {
     console.log(suffix);
     let node = this.root;
-   
-    for (let i = suffix.length -1; i >= 0; i--) {
+
+    for (let i = suffix.length - 1; i >= 0; i--) {
       const char = suffix[i];
       console.log(char);
       if (!node.children.has(char)) {
@@ -175,12 +174,12 @@ class Trie {
 }
 
 const trie = new Trie();
-trie.insert('hello');
-trie.insert('world');
-console.log(trie.search('hello')); // true
-console.log(trie.search('world')); // true
-console.log(trie.startsWith('llo')); // false
-console.log(trie.startsWith('he')); // true
-console.log(trie.startsWith('w')); // true
-console.log(trie.startsWith('f')); // false
-console.log(trie.endsWith('ld')); // false
+trie.insert("hello");
+trie.insert("world");
+console.log(trie.search("hello")); // true
+console.log(trie.search("world")); // true
+console.log(trie.startsWith("llo")); // false
+console.log(trie.startsWith("he")); // true
+console.log(trie.startsWith("w")); // true
+console.log(trie.startsWith("f")); // false
+console.log(trie.endsWith("ld")); // false

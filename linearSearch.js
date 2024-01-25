@@ -11,10 +11,11 @@
 
 
 
-let names = ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve'];
+let names = ['Alice', 'Bob',"hai",'Charlie', 'Dave', 'Eve'];
 let target = 'hai';
 let found = false;
 for (let i = 0; i < names.length; i++) {
+  console.log(names[i]);
   if (names[i] === target) {
     found = true;
     break;

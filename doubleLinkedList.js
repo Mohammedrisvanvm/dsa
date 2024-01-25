@@ -157,4 +157,4 @@ class Node {
  ll.insertAtBeginning(5)
  ll.insertAtBeginning(10)
 console.log(ll);
-  
+  console.log(ll.toArray());

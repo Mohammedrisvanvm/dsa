@@ -17,15 +17,10 @@ function arrayToLinkedList(arr) {
   console.log(current);
   for (let i = 1; i < arr.length; i++) {
     const newNode = new Node(arr[i]);
-
- 
-
     current.next = newNode;
-    
     current = newNode;
 
   }
-
   return head;
 }
 

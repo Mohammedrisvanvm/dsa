@@ -8,9 +8,7 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
- 
   }
-
 
   insertAtBeginning(data) {
     console.log(data);
@@ -18,11 +16,8 @@ class LinkedList {
     console.log(newNode);
     newNode.next = this.head;
     this.head = newNode;
-  
- 
   }
 }
-
 
 let ll = new LinkedList();
 ll.insertAtBeginning(5);
